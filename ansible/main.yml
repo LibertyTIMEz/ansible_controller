@@ -1,4 +1,23 @@
 - hosts: targets
-  user:
+  user: root
   tasks:
+  - name: output message.
+    debug: msg="{{ message }}"
+
+  - name: install packages from yum
+    yum: name={{ item }} state=latest
+    with_items:
+      -
+      -
+      -
+      -
+
+
+  - name: create directories
+
+  - name: install
+
   - name:
+
+  - name: copy files
+    copy: src=./files/oracle_install.rsp dest=
