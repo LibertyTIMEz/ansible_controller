@@ -11,7 +11,25 @@
       -
       -
       -
+      
+  - name: Create Groups
+    group:
+      gid: "{{ item.gid }}"
+      name: "{{ item.name }}"
+    with_items:
+      - { gid: 54321, name: oinstall }
+      - { gid: 54322, name: dba }
+      - { gid: 54323, name: oper }
+      - { gid: 54324, name: backupdba }
+      - { gid: 54325, name: dgdba }
+      - { gid: 54326, name: kmdba }
+      - { gid: 54327, name: racdba }
 
+  - name: Add Oracle User
+    user:
+      name: oracle
+      groups: dba,oper,backupdba,dgdba,kmdba,racdba
+      append: yes
 
   - name: create directories
 
